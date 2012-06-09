@@ -1,8 +1,0 @@
-RewriteEngine on
-
-RewriteCond %{REQUEST_URI} !\.(css|gif|ico|jpg|js|png|swf|txt)$
-
-RewriteRule ^(|/)$ index.php?request=$1
-
-RewriteRule ^([a-zA-Z0-9/_-]+)(|)$ index.php?request=$1
-
