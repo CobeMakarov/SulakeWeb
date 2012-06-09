@@ -1,0 +1,50 @@
+/*
+    Document  : Header
+    Author    : Cobe Makarov
+    Date      : May 14th, 2012
+    Purpose   : All the elements having to do with the header.
+*/
+
+.header-container
+{
+    background-color: #bce0ee;
+    background-repeat: repeat-x;
+    width: 100%;
+    margin: 0;
+    z-index: 10;
+}
+
+.header-container > .header
+{
+    margin: 0;
+    padding: 15px;
+    height: 70px;
+    background: url("../Images/header_background.png");
+}
+
+.header-container > .header > #site-logo
+{
+    margin-top: 20px;
+}
+
+.header-container > .header > .divider
+{
+    display: block;
+    background-image: url("../Images/divider.png");
+    height: 2px;
+    width: 10px;
+}
+
+.header-container > .header > .right-container
+{
+    float: right;
+}
+
+.header-container > .header > .right-container > .content
+{
+    float: right;
+    padding: 4px;
+    border-radius:2px;
+    background-color:#FFF;
+    height:40px;
+}

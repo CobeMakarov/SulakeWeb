@@ -1,0 +1,60 @@
+<div class="header">
+            <a href="/"><img src="../Public/Themes/Habbo/Images/habbo.png" id="site-logo" /></a>
+            <div class="right-container">
+                <div class="content">
+                    ${users_online} online right now!
+                </div>
+            </div>
+        </div>
+
+        <img src="../Public/Themes/Habbo/Images/index-finish-image.png" style="float: right;"/>
+
+        <div class="white-space"></div>
+
+        <div class="page-container">
+            <div class="center-container">
+                <h1>Create an Account!</h1>
+                <form id="form-register" method="POST" action="#">
+
+                    <div class="label">Registration E-mail</div>
+                    <input type="text" id="register-email" /> <br>
+                    <div class="hint">
+                        This is what you'll use to login to ${page-title}!
+                    </div>
+
+                    <div class="label">Registration Password</div>
+                    <input type="password" id="register-password"/> <br>
+                    <div class="hint">
+                        Make sure you don't forget this because this is the phrase you'll use to login with your e-mail!
+                        <u><b>Press enter on this field to register!</b></u>
+                    </div>
+                </form>
+
+                <div class="delimiter_smooth">
+                    <div class="flat"></div>
+                    <div class="arrow"></div>
+                    <div class="flat"></div>
+                </div>
+
+                <h1>Login to your Account!</h1>
+
+                <form id="form-login" method="POST" action="#">
+
+                    <div class="label">E-mail</div>
+                    <input type="text" id="login-email" placeholder="Email" /> <br>
+                    <div class="hint">
+                        This is the e-mail address you used when first registering here at ${page-title}.
+                        If you constantly forget it, write it down somewhere!
+                    </div>
+
+                    <div class="label">Password</div>
+                    <input type="password" id="login-password" placeholder="Password" /> <br>
+                    <div class="hint">
+                        This is the password associated with your e-mail address!
+                        <u><b>Press enter on this field to login!</b></u>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        </div>
