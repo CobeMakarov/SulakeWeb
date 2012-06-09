@@ -1,0 +1,21 @@
+        <div class="page-container">
+            <div class="box span5 left">
+                <div class="title">${article_title}</div>
+                <div align="right">Written by <b>${article_author}</b> on <b>${article_date}</b></div><br>
+
+                <img src="../Public/Themes/Default/Images/Promos/${article_image}" id="article_image" style="width: 730px;"/><br><br>
+
+                ${article_story}
+            </div>
+            <div class="box span5 left">
+                <div class="title">Comments on <b>"${article_title}"</b></div>
+                <div id="comment-container"></div>
+                <div id="message-data" align="center" style="font-weight: bold;"></div>
+                <form id="compose-comment-form" action="#" method="POST">
+                    <h1>Your Comment</h1>
+                    <textarea id="comment-data" rows="5" maxlength="448" style="resize: none; width: 450px; height: 129px;"></textarea>
+                    <input type="submit" id="comment-submit" value="Submit" onclick="return false;" style="float: right;"/>
+                </form>
+            </div>
+            <div id="article-id" style="display: none;">${article_id}</div>
+        </div>
