@@ -51,8 +51,13 @@ $(document).ready(function()
         })
     })
 
-    $('#character-submit').live('click', function()
+    $('#creation-username').keyup(function(event)
     {
+        if (event.which != 13)
+        {
+            return;
+        }
+
         var _username = $('#creation-username').val();
 
         $.post('post', {create_character: true, creation_username: _username, creation_look: look}, function(data)
