@@ -69,7 +69,7 @@ class MySQL implements Model
 
     public function bind($_params)
     {
-        $parameterCount = substrCount($this->Query, '?');
+        $parameterCount = substr_count($this->Query, '?');
 
         $parameter_key = 0;
 
