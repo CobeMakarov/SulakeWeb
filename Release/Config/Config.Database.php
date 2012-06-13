@@ -26,7 +26,7 @@ $Config['Database']['Port'] = '3306';
 /*
  * What is the name of the database you are trying to use.
  */
-$Config['Database']['Name'] = 'mcd';
+$Config['Database']['Name'] = 'sweb';
 
 /*
  * What is the username needed to connect to your database.
@@ -36,5 +36,5 @@ $Config['Database']['User'] = 'root';
 /*
  * What is the password needed to connect to your database.
  */
-$Config['Database']['Password'] = 'lol123';
+$Config['Database']['Password'] = 'swebdbpw';
 ?>

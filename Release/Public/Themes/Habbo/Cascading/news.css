@@ -3,7 +3,7 @@
     display: block;
     width: 759px;
     height: 300px;
-    margin: auto;
+    margin-left: 212px;
 }
 
 .article-container > .content
@@ -34,6 +34,7 @@
     opacity: 0.5;
     filter: alpha(opacity=50);
     cursor: pointer;
+    font-family: "Segoe UI";
 }
 
 .article-container > .content > .right

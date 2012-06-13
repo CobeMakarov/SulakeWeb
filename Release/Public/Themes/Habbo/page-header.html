@@ -1,18 +1,39 @@
 <div class="header-container">
             <div class="header">
-                <a href="/"><img src="../Public/Themes/Habbo/Images/habbo.png" id="site-logo" /></a>
-                <div class="right-container">
+                <h1>
+                    <a href="/"></a>
+                </h1>
+                <div class="top-navigation">
                     <div class="content">
-                        <div class="online-user-count">
-                            ${users_online} online right now!
-                        </div>
-                        <br>
-                        <div align="center">
-                            <a href="#" onclick="clearSession();">Sign Out</a>
-                        </div>
+                        <a href="#" onclick="clearSession();">Sign Out</a>
                     </div>
                 </div>
+                <div class="enter-hotel">
+                    <a class="new-button green-button" href="client">
+                        <b>Enter ${page-title}</b>
+                        <i></i>
+                    </a>
+                </div>
+                <div class="habbos-online">
+                    <div class="online-user-count">
+                        ${users_online} online right now!
+                    </div>
+                </div>
+                <div class="sub-navigation">
+                    <a href="me" class="navigation-link">${habbo_username}</a>
+                    <i></i>
+
+                    <a href="community" class="navigation-link">Community</a>
+                    <i></i>
+
+                    <a href="staff" class="navigation-link">Staff Members</a>
+                    <i></i>
+                </div>
             </div>
-            <div class="divider"></div>
         </div>
-        <div class="white-space" style="height: 100px;"></div>
+        <div class="low-navigation-container">
+            <div class="low-navigation">
+                <a href="index">Dummy Link 1</a>
+            </div>
+        </div>
+        <div class="white-space" style="height: 40px;"></div>

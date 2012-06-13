@@ -8,81 +8,81 @@
 
 class MySQL implements Model
 {
-    public $_query, $_count = 0;
+    public $Query, $Count = 0;
 
-    private $_link, $_host, $_name, $_user, $_password, $_connected;
+    private $Link, $Host, $Name, $User, $Password, $Connected;
 
     public function __construct($_database)
     {
         include('DataObject.MySQL.php');
 
-        $this->_host = $_database['host'];
-        $this->_name = $_database['name'];
-        $this->_user = $_database['user'];
-        $this->_password = $_database['password'];
+        $this->Host = $_database['Host'];
+        $this->Name = $_database['Name'];
+        $this->User = $_database['User'];
+        $this->Password = $_database['Password'];
 
         $this->connect();
     }
 
     public function connect()
     {
-        if ($this->_connected)
+        if ($this->Connected)
         {
             return;
         }
 
         try
         {
-            $this->_link = mysql_connect(
-                    $this->_host,
-                    $this->_user,
-                    $this->_password);
+            $this->Link = mysql_connect(
+                    $this->Host,
+                    $this->User,
+                    $this->Password);
 
-            mysql_select_db($this->_name, $this->_link);
+            mysql_select_db($this->Name, $this->Link);
         }
         catch(Exception $e)
         {
             trigger_error($e->getMessage());
         }
 
-        $this->_connected = true;
+        $this->Connected = true;
     }
 
     public function disconnect()
     {
-        $this->_link->close();
+        $this->Link->close();
 
-        $this->_connected = false;
+        $this->Connected = false;
     }
 
     public function secure($_variable)
     {
-        return mysql_real_escape_string($_variable, $this->_link);
+        return mysql_real_escape_string($_variable, $this->Link);
     }
 
-    public function prepare($_query)
+    public function prepare($Query)
     {
-        $this->_query = $_query;
+        $this->Query = $Query;
 
         return $this;
     }
 
     public function bind($_params)
     {
-        $parameter_count = substr_count($this->_query, '?');
+        $parameterCount = substrCount($this->Query, '?');
 
         $parameter_key = 0;
 
-        $parameter_real_count = count($_params);
+        $parameter_realCount = count($_params);
 
-        for($i = 0; $i < $parameter_count; $i++)
+        for($i = 0; $i < $parameterCount; $i++)
         {
-           if ($parameter_key > $parameter_real_count)
+           if ($parameter_key > $parameter_realCount)
            {
                break;
            }
 
-           $this->_query = preg_replace('/\?/', '"' . $_params[$parameter_key] . '"', $this->_query, 1);
+           $this->Query = preg_replace('/\?/', '"' . $_params[$parameter_key] . '"', $this->Query, 1);
 
            $parameter_key++;
         }
@@ -92,9 +92,9 @@ class MySQL implements Model
 
     public function execute()
     {
-        $this->_count++;
+        $this->Count++;
 
-        return new DataObjectSQL($this->_query, $this->_link);
+        return new DataObjectSQL($this->Query, $this->Link);
     }
 }
 ?>

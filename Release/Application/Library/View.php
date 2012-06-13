@@ -12,31 +12,24 @@ class View extends Manhattan
 
     public $Parameters = array();
 
-    public function __construct($_view)
+    public function __construct()
     {
-        $this->Template = file_get_contents('Public/Themes/' . THEME . '/page-background.html');
-
-        if (!file_exists('Public/Themes/' . THEME . '/' . $_view . '.html'))
-        {
-            return; //blah
-        }
-
-        $this->Body = $this->Body . file_get_contents('Public/Themes/' . THEME . '/'.$_view.'.html');
+        $this->Template = file_get_contents('./Public/Themes/' . THEME . '/page-background.html');
     }
 
     public function add($_file)
     {
-        if (!file_exists('Public/Themes/' . THEME . '/' . $_file . '.html'))
+        if (!file_exists('./Public/Themes/' . THEME . '/' . $_file . '.html'))
         {
-            trigger_error('Public/Themes/' . THEME . '/' . $_file . '.html does not exist on this web server!');
+            trigger_error('./Public/Themes/' . THEME . '/' . $_file . '.html does not exist on this web server!');
         }
 
-        $this->Body = $this->Body . file_get_contents('Public/Themes/' . THEME . '/'.$_file.'.html');
+        $this->Body = $this->Body . file_get_contents('./Public/Themes/' . THEME . '/'.$_file.'.html');
     }
 
     public function javascript($_file)
     {
-        if (!file_exists('Public/Themes/' . THEME . '/Javascript/' . $_file . '.js'))
+        if (!file_exists('./Public/Themes/' . THEME . '/Javascript/' . $_file . '.js'))
         {
             return; //blah
         }
@@ -46,7 +39,7 @@ class View extends Manhattan
 
     public function css($_file)
     {
-        if (!file_exists('Public/Themes/' . THEME . '/Cascading/' . $_file . '.css'))
+        if (!file_exists('./Public/Themes/' . THEME . '/Cascading/' . $_file . '.css'))
         {
             return; //blah
         }

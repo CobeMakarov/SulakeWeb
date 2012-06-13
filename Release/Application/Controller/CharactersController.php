@@ -28,12 +28,10 @@ class CharactersController implements Controller
                 return;
             }
 
-            $View = new View('page-characters');
+            $View = new View();
 
-            $View->css('index');
-
-            $View->javascript('jquery.index');
-
+            new ControllerHelper($View, 'page-characters');
+            
             $View->set(array(
                 'page-title' => $this->Manhattan->Config['Site']['Title'],
                 'page-tagline' => 'Characters',

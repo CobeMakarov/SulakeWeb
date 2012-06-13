@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme id="habbo">
+
+    <controller>
+
+        <id>page-index</id>
+
+        <html>page-index</html>
+
+        <css>index</css>
+
+        <js>jquery.index</js>
+
+    </controller>
+
+    <controller>
+
+        <id>page-characters</id>
+
+        <html>page-characters</html>
+
+        <css>index</css>
+
+        <js>jquery.index</js>
+
+    </controller>
+
+    <controller>
+
+        <id>page-me</id>
+
+        <html>page-header</html>
+        <html>page-article</html>
+        <html>page-me</html>
+        <html>page-footer</html>
+
+        <css>boxes</css>
+        <css>body</css>
+        <css>news</css>
+        <css>header</css>
+
+        <js>jquery.global</js>
+        <js>jquery.articles</js>
+        <js>jquery.online</js>
+
+    </controller>
+
+    <controller>
+
+        <id>page-community</id>
+
+        <html>page-header</html>
+        <html>page-article</html>
+        <html>page-community</html>
+        <html>page-footer</html>
+        
+        <css>boxes</css>
+        <css>body</css>
+        <css>news</css>
+        <css>header</css>
+
+        <js>jquery.global</js>
+        <js>jquery.articles</js>
+        <js>jquery.online</js>
+        <js>jquery.twitter</js>
+        <js>jquery.community</js>
+
+    </controller>
+
+    <controller>
+
+        <id>page-staff</id>
+
+        <html>page-header</html>
+        <html>page-article</html>
+        <html>page-staff</html>
+        <html>page-footer</html>
+
+        <css>boxes</css>
+        <css>body</css>
+        <css>news</css>
+        <css>header</css>
+
+        <js>jquery.global</js>
+        <js>jquery.staff</js>
+        <js>jquery.articles</js>
+        <js>jquery.online</js>
+
+    </controller>
+
+    <controller>
+
+        <id>page-ase-base</id>
+
+        <html>page-header</html>
+        <html>page-ase-base</html>
+        <html>page-footer</html>
+
+        <css>boxes</css>
+        <css>body</css>
+        <css>news</css>
+        <css>header</css>
+
+        <js>jquery.global</js>
+        <js>jquery.articles</js>
+        <js>jquery.online</js>
+        <js>jquery.ase</js>
+
+    </controller>
+
+</theme>
+

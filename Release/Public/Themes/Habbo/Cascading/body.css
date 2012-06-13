@@ -1,17 +1,16 @@
 body
 {
-    margin: 0;
-    font-family:"Verdana";
     font-size: 11px;
-    background-color: #BCE0EE;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    background-color: #E3E3DB;
+    margin: 0;
+    padding: 0;
     background-image: url("../Images/background.png");
-    overflow-x: hidden;
 }
 
 a
 {
-    color: #fc6204;
-    text-decoration: none;
+    color: #FC6204;
 }
 
 .white-space
@@ -24,7 +23,7 @@ a
 {
     display: block;
     width: 57%;
-    margin: auto;
+    margin-left: 212px;
 }
 
 input
@@ -84,3 +83,87 @@ input[type="button"]:hover
     background-color: #0055cc;
 }
 
+a.new-button
+{
+    margin: 0 0 5px 10px;
+    display: block;
+    float: right;
+    height: 25px;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+a.new-button b
+{
+    float: left;
+    padding: 5px 17px 4px 20px;
+    font-size: 11px;
+    height: 17px;
+    margin-right: 3px;
+    background: transparent url("../Images/button_palette.png") no-repeat -3px 0;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    display: inline;
+}
+
+a.new-button i
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3px;
+    height: 25px;
+    background: transparent url("../Images/button_palette.png") no-repeat 0 0;
+}
+
+a.new-button.red-button b
+{
+    background-position:-3px -100px;
+    color:#fff!important
+}
+
+a.new-button.red-button i
+{
+    background-position:0 -100px
+}
+
+a.new-button.red-button:hover b
+{
+    background-position:-3px -125px
+}
+
+a.new-button.green-button b
+{
+    background-position:-3px -150px;
+    color:#fff!important
+}
+
+a.new-button.green-button i
+{
+    background-position:0 -150px
+}
+
+a.new-button.green-button:hover b
+{
+    background-position:-3px -175px
+}
+
+a.new-button.dark-button b
+{
+    background-position:-3px -50px;
+    color:#fff!important
+}
+
+a.new-button.dark-button i
+{
+    background-position:0 -50px
+}
+
+a.new-button.dark-button:hover b
+{
+    background-position:-3px -75px
+}

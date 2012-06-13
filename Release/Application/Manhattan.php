@@ -10,7 +10,7 @@ class Manhattan
 {
     public $Config = array(), $Start;
 
-    private $Model, $Router, $Request, $Cache;
+    private $Model, $Router, $Request, $Cache, $Facebook;
 
     public function __autoload()
     {
@@ -53,6 +53,23 @@ class Manhattan
         $this->Router = new Router();
         $this->Cache = new Cache();
         new User($this, $_SESSION['habbo']);
+
+        if (!is_null($this->Config['Social']['Facebook']['ApplicationID']))
+        {
+            $this->Facebook = new Facebook(array(
+                'appId'  => $this->Config['Social']['Facebook.AppID'],
+                'secret' => $this->Config['Social']['Facebook.AppSecret'],
+                'cookie' => true));
+
+            if (!class_exists(Facebook))
+            {
+                $this->Facebook = null;
+            }
+        }
+        else
+        {
+            $this->Facebook = null;
+        }
     }
 
     private function IncludeInterfaces()
@@ -93,6 +110,11 @@ class Manhattan
     public function GetCache()
     {
         return $this->Cache;
+    }
+
+    public function GetFacebook()
+    {
+        return $this->Facebook;
     }
 
     public function GetHash($Variable)

@@ -8,64 +8,64 @@
 
 class mMySQLi implements Model
 {
-    public $_query, $_count = 0;
+    public $Query, $Count = 0;
 
-    private $_link, $_host, $_name, $_user, $_password, $_connected, $_STMT;
+    private $Link, $Host, $Name, $User, $Password, $Connected, $STMT;
 
     public function __construct($_database)
     {
         include('DataObject.MySQLi.php');
 
-        $this->_host = $_database['host'];
-        $this->_name = $_database['name'];
-        $this->_user = $_database['user'];
-        $this->_password = $_database['password'];
+        $this->Host = $_database['Host'];
+        $this->Name = $_database['Name'];
+        $this->User = $_database['User'];
+        $this->Password = $_database['Password'];
 
         $this->connect();
     }
 
     public function connect()
     {
-        if ($this->_connected)
+        if ($this->Connected)
         {
             return;
         }
 
-        $this->_link = new MySQLi(
-                $this->_host,
-                $this->_user,
-                $this->_password,
-                $this->_name);
+        $this->Link = new MySQLi(
+                $this->Host,
+                $this->User,
+                $this->Password,
+                $this->Name);
 
-        if ($this->_link->connect_error)
+        if ($this->Link->connect_error)
         {
-            trigger_error($this->_link->connect->errno);
+            trigger_error($this->Link->connect->errno);
         }
         else
         {
-            $this->_connected = true;
+            $this->Connected = true;
         }
     }
 
     public function disconnect()
     {
-        $this->_link->close();
+        $this->Link->close();
 
-        $this->_connected = false;
+        $this->Connected = false;
     }
 
     public function secure($_variable)
     {
-        return $this->_link->real_escape_string($_variable);
+        return $this->Link->real_escape_string($_variable);
     }
 
-    public function prepare($_query)
+    public function prepare($Query)
     {
-        $this->_query = $_query;
+        $this->Query = $Query;
 
-        if (!$this->_STMT = $this->_link->prepare($_query))
+        if (!$this->STMT = $this->Link->prepare($Query))
         {
-            die($this->_STMT->error);
+            die($this->STMT->error);
         }
 
         return $this;
@@ -87,7 +87,7 @@ class mMySQLi implements Model
         $this->retrieve($_params, $_arguments);
 
         //Bind the parameters
-        call_user_func_array(array($this->_STMT, 'bind_param'), $_arguments);
+        callUser_func_array(array($this->STMT, 'bind_param'), $_arguments);
 
         return $this;
     }
@@ -118,14 +118,14 @@ class mMySQLi implements Model
 
     public function execute()
     {
-        if(!$this->_STMT->execute())
+        if(!$this->STMT->execute())
         {
-            return $this->_STMT->error;
+            return $this->STMT->error;
         }
 
-        $this->_count++;
+        $this->Count++;
 
-        return new DataObjectSQLi(null, $this->_STMT);
+        return new DataObjectSQLi(null, $this->STMT);
     }
 }
 ?>

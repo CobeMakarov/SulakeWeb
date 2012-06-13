@@ -1,24 +1,39 @@
         <div class="page-container">
-            <div class="box span3 left">
-                <div class="title">${habbo_username}</div>
-                <img src="../Storage/Cache/Looks/${habbo_look}.png" />
-                <div class="me-information">
-                    <h1>Motto</h1>
-                    ${habbo_motto}
-                    <br>
-                    <h1>Credits</h1>
-                    ${habbo_credits}
-                    <br>
-                    <a href="client">Enter ${site_title}</a>
+            <div class="me-information">
+                <div class="look">
+                    <img src="../Storage/Cache/Looks/${habbo_look}.png" />
                 </div>
-            </div>
-            <div class="box span3 right">
-                <div class="title">User Settings</div>
-                <div id="alert-container" align="center" style="font-weight: bold;"></div>
+                <div class="information" id="username">
+                    <div class="label">
+                        Username:
+                    </div>
+                    <div class="content">
+                        ${habbo_username}
+                    </div>
+                </div>
 
-                <form id="settings-form" action="#" method="POST">
-                    <input type="text" id="settings-motto" placeholder="${habbo_motto}" />
-                    <input type="submit" id="settings-submit" value="Submit" onclick="return false;"/>
-                </form>
+                <div class="information" id="motto">
+                    <div class="label">
+                        Motto:
+                    </div>
+                    <div class="content">
+                        ${habbo_motto}
+                    </div>
+                </div>
+
+                <div class="information" id="credits">
+                    <div class="label">
+                        Credits:
+                    </div>
+                    <div class="content">
+                        ${habbo_credits}
+                    </div>
+                </div>
+
+                <div class="enter-hotel">
+                    <a class="enter-button" href="client">Enter ${page-title}</a>
+                    <i></i>
+                    <b></b>
+                </div>
             </div>
         </div>

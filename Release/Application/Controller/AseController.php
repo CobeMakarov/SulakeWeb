@@ -38,20 +38,9 @@ class AseController implements Controller
             return;
         }
 
-        $View = new View('page-header');
+        $View = new View();
 
-        $View->add('page-ase-base');
-        $View->add('page-footer');
-
-        $View->css('boxes');
-        $View->css('body');
-        $View->css('news');
-        $View->css('header');
-
-        $View->javascript('jquery.global');
-        $View->javascript('jquery.articles');
-        $View->javascript('jquery.online');
-        $View->javascript('jquery.ase');
+        new ControllerHelper($View, 'page-ase-base');
 
         foreach($_SESSION['habbo'] as $Key => $Value)
         {

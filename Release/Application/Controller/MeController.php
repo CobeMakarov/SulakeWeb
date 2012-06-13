@@ -34,7 +34,7 @@ class MeController implements Controller
                 return;
             }
 
-            /*
+            
             $Exists = file_get_contents('Storage/Cache/Looks/' . $_SESSION['habbo']['look'] . '.png');
             $HabboLook = file_get_contents('http://www.habbo.com/habbo-imaging/avatarimage?figure=' . $_SESSION['habbo']['look'] . '.gif');
 
@@ -44,21 +44,10 @@ class MeController implements Controller
                     'Storage/Cache/Looks/' . $_SESSION['habbo']['look'] . '.png',
                     file_get_contents('http://www.habbo.com/habbo-imaging/avatarimage?figure=' . $_SESSION['habbo']['look'] . '.gif'));
             }
-            */
-            $View = new View('page-header');
+            
+            $View = new View();
 
-            $View->add('page-article');
-            $View->add('page-me');
-            $View->add('page-footer');
-
-            $View->css('boxes');
-            $View->css('body');
-            $View->css('news');
-            $View->css('header');
-
-            $View->javascript('jquery.global');
-            $View->javascript('jquery.articles');
-            $View->javascript('jquery.online');
+            new ControllerHelper($View, 'page-me');
 
             foreach($_SESSION['habbo'] as $Key => $Value)
             {

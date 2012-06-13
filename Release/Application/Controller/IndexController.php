@@ -34,11 +34,9 @@ class IndexController implements Controller
                 }
             }
 
-            $View = new View('page-index');
+            $View = new View();
 
-            $View->css('index');
-
-            $View->javascript('jquery.index');
+            new ControllerHelper($View, 'page-index');
 
             $View->set(array(
                 'page-title' => $this->Manhattan->Config['Site']['Title'],
@@ -57,6 +55,15 @@ class IndexController implements Controller
     public function check()
     {
         return file_exists('Public/Themes/' . THEME . '/page-index.html');
+
+        while($QueryObject = mysql_fetch_array($Query))
+        {
+            //If needed
+            foreach($QueryObject as $ArrayKey => $ArrayValue)
+            {
+
+            }
+        }
     }
 }
 ?>

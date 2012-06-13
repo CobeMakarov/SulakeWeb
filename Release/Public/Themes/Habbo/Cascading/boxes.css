@@ -1,25 +1,38 @@
 .box
 {
     display: inline-box;
-    padding: 20px;
-    margin-bottom: 50px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
+    padding: 5px 5px 10px 5px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
     background-color: #fff;
-    border: 1px solid #eee;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #c8c8c8;
+    -moz-box-shadow: 0 4px 2px -2px #c8c8c8;
+    -webkit-box-shadow: 0 4px 2px -2px #c8c8c8;
+    box-shadow: 0 4px 2px -2px #c8c8c8;
     min-height: 216px;
+    margin: 0px 1px 50px 1px;
 }
 
 .box > .title
 {
-    font-size: 40px;
-    margin-bottom: 20px;
-    line-height: 30px;
+    width: 100%;
+    background-color: #2767A7;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.box > .filling
+{
+    padding: 10px;
 }
 
 /*
@@ -50,17 +63,17 @@ BOX SPANS
 
 .span1
 {
-    width: 21%;
+    width: 23%;
 }
 
 .span2
 {
-    width: 27%;
+    width: 32%;
 }
 
 .span3
 {
-    width: 40%;
+    width: 45%;
 }
 
 .span4
@@ -76,17 +89,109 @@ BOX SPANS
 /*
 MISC BOX STUFF
 */
-.box > .me-information
+.me-information
 {
-    display:inline-block;
-    float:right;
-    width: 40%;
-    height: 100%;
+    width: 759px;
+    height: 130px;
+    float: left;
+    padding-bottom: 7px;
+    margin-left: 1px;
+    background: url("../Images/me-box.png") no-repeat;
+    position: relative;
+    margin-bottom: 50px;
 }
 
-.box > .me-information > h1
+.me-information > .information
 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    position: absolute;
+    left: 132px;
+    width: 300px;
+    overflow: hidden;
+    color: white;
+    margin: 10px 12px 0 12px;
+    line-height: 13px;
+}
+
+.me-information > #username
+{
+    top: 0;
+    height: 36px;
+}
+
+.me-information > #motto
+{
+    top: 44px;
+    height: 30px;
+}
+
+.me-information > #credits
+{
+    top: 83px;
+    height: 28px;
+}
+
+.me-information > .information > .label
+{
     font-weight: bold;
+}
+
+.me-information > .information > .content
+{
+   line-height: 13px;
+}
+
+.me-information > .look
+{
+    position: absolute;
+    top: 14px;
+    left: 15px;
+    height: 110px;
+    width: 96px;
+    text-align: center;
+}
+
+.me-information > .enter-hotel
+{
+    position: absolute;
+    left: 500px;
+    width: 300px;
+    text-align: center;
+    display: inline-block;
+}
+
+.me-information > .enter-hotel > .enter-button
+{
+    float: left;
+    background: transparent url("../Images/back_to_hotel_button.png") no-repeat -10px 0;
+    height: 54px;
+    text-align: center;
+    line-height: 54px;
+    padding: 0 28px 0 19px;
+    font-size: 14px;
+    position: relative;
+    color: white;
+    max-width: 239px;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.me-information > .enter-hotel > .enter-button:hover
+{
+    background-position:-10px -54px;
+    text-decoration:underline
+}
+
+.me-information > .enter-hotel > b
+{
+    float: left;
+    background: transparent url("../Images/back_to_hotel_button.png") no-repeat 0 0;
+    height: 54px;
+    width: 10px;
+}
+
+#ase-navigation > a
+{
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
 }

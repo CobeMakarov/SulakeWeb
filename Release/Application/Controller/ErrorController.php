@@ -34,7 +34,11 @@ class ErrorController implements Controller
         {
             $Current = CURRENT . '.php';
         }
-        
+
+        $lol = '${hello-mello} I love {dicks} vagina!';
+
+        die(preg_replace('/${([^}]+)}/', null, $lol));
+
         $_view->set(array(
             'page-title' => '404',
             'page-tagline' => 'File Not Found!',

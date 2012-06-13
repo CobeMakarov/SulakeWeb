@@ -14,7 +14,7 @@ $URI = str_replace(FORMATTED, null, $_SERVER['REQUEST_URI']);
 
 $Array = explode('?', $URI);
 
-if ($Array) // $_GET Request :)
+if (isset($Array)) // $_GET Request :)
 {
     $Manhattan->GetRequests()->FormatGET($Array[1]);
 }

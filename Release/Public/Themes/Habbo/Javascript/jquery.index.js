@@ -83,6 +83,31 @@ $(document).ready(function()
             })
         })
     }
+
+    $('.facebook-connect').live('click', function()
+    {
+        $.post('post', {facebook_connect: true}, function(data)
+        {
+            if (data == "CREATION = GOOD;")
+            {
+                window.location = " ";
+                return false;
+            }
+
+            if (data.indexOf("https") != -1)
+            {
+                $('.facebook-auth').fadeOut('slow', function()
+                {
+                    $(this).html(data);
+                    $(this).fadeIn('slow');
+                })
+            }
+            else
+            {
+                alert(data);
+            }
+        })
+    })
 })
 
 function activateUser(_id)

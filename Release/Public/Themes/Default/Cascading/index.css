@@ -221,3 +221,9 @@ input[type="button"]:hover
     text-decoration: none;
 }
 
+.facebook-login
+{
+    width: 154px;
+    height: 22px;
+    background-image: url("../Images/facebook-login.png");
+}

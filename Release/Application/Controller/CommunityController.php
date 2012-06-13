@@ -34,23 +34,10 @@ class CommunityController implements Controller
                 return;
             }
 
-            $View = new View('page-header');
+            $View = new View();
 
-            $View->add('page-article');
-            $View->add('page-community');
-            $View->add('page-footer');
-
-            $View->css('boxes');
-            $View->css('body');
-            $View->css('news');
-            $View->css('header');
-
-            $View->javascript('jquery.global');
-            $View->javascript('jquery.twitter');
-            $View->javascript('jquery.community');
-            $View->javascript('jquery.articles');
-            $View->javascript('jquery.online');
-
+            new ControllerHelper($View, 'page-community');
+            
             foreach($_SESSION['habbo'] as $Key => $Value)
             {
                 $View->set(array('habbo_' . $Key => $Value));

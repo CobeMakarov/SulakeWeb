@@ -204,9 +204,19 @@ class PostController implements Controller
                     $Account = $this->Manhattan->GetModel()->prepare('SELECT * FROM users WHERE id = ?')
                             ->bind(array($_POST['activation_id']))->execute();
 
+                    if ($Account->num_rows() == 0)
+                    {
+                        die('Stop trying to exploit the system man!');
+                    }
+
                     while($A = $Account->fetch_array())
                     {
-                        $UserBan = $this->Manhattan->GetModel()->prepare('SELECT null FROM bans WHERE value = ?')
+                        if ($A['mail'] != $_SESSION['account']['master_email'])
+                        {
+                            die('Stop trying to exploit the system man!');
+                        }
+
+                        $UserBan = $this->Manhattan->GetModel()->prepare('SELECT * FROM bans WHERE value = ?')
                                 ->bind(array($A['username']))->execute();
 
                         if ($UserBan->num_rows() > 0)
@@ -214,7 +224,7 @@ class PostController implements Controller
                             die('Seems this account has been banned!');
                         }
 
-                        $IpBan = $this->Manhattan->GetModel()->prepare('SELECT null FROM bans WHERE value = ?')
+                        $IpBan = $this->Manhattan->GetModel()->prepare('SELECT * FROM bans WHERE value = ?')
                                 ->bind(array($_SERVER['REQUEST_ADDR']))->execute();
 
                         if ($IpBan->num_rows() > 0)
@@ -748,6 +758,49 @@ class PostController implements Controller
                             ->bind(array($Name, 'Generic Ban', $_SESSION['habbo']['username']))->execute();
 
                     die($Name . ' has been banned successfully!');
+                    break;
+
+                case 'facebook_connect':
+
+                    if (is_null($this->Manhattan->GetFacebook()))
+                    {
+                        die('Sorry facebook login is disabled!');
+                    }
+
+                    $Session = $this->Manhattan->GetFacebook()->getUser();
+
+                    if (!$Session)
+                    {
+                        die('<a href="' . $this->Manhattan->GetFacebook()->getLoginUrl(array('scope' => 'email', 'canvas' => 1,)) . '">Login to Facebook</a>');
+                    }
+
+                    $User = $this->Manhattan->GetFacebook()->api('/me');
+
+                    $Email = $User["email"];
+
+
+                    $UserCheck = $this->Manhattan->GetModel()->prepare('SELECT * FROM sulake_users WHERE email = ?')
+                            ->bind(array($Email))->execute();
+
+                    if ($UserCheck)
+                    {
+                        $_SESSION['account']['logged_in'] = true;
+                        $_SESSION['account']['master_email'] = $Email;
+                        die('CREATION = GOOD;');
+                    }
+                    else
+                    {
+                        $EmailSplit = explode('@', $Email);
+
+                        $DomainSplit = explode('.', $EmailSplit[1]);
+
+                        //##cobejohnson##hotmail##
+                        $CreatedPassword = CreatePassword($EmailSplit[0], $DomainSplit[0], 'facebook-generated');
+
+                        $this->Manhattan->GetModel()->prepare('INSERT INTO sulake_users (email, password) VALUES (?, ?)')
+                                ->bind(array($Email, $CreatedPassword))->execute();
+                        die('CREATION = GOOD;');
+                    }
                     break;
             }
         }

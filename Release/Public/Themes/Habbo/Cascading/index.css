@@ -260,4 +260,10 @@ li.character-container > img
     position: relative;
 }
 
-
+.facebook-connect
+{
+    width: 194px;
+    height: 25px;
+    background-image: url("../Images/facebook-login.png");
+    cursor: pointer;
+}
