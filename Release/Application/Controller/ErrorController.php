@@ -21,7 +21,7 @@ class ErrorController implements Controller
     public function action()
     {
         $_view = new View('404');
-
+        
         $Array = explode('/', CURRENT);
         $Current = null;
 
@@ -34,10 +34,6 @@ class ErrorController implements Controller
         {
             $Current = CURRENT . '.php';
         }
-
-        $lol = '${hello-mello} I love {dicks} vagina!';
-
-        die(preg_replace('/${([^}]+)}/', null, $lol));
 
         $_view->set(array(
             'page-title' => '404',

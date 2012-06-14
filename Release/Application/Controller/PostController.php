@@ -182,8 +182,8 @@ class PostController implements Controller
                                 $_POST['creation_username'],
                                 '',
                                 $this->Manhattan->Config['Site']['Title'] . ' new user!',
-                                date('m.d.y'),
-                                $_SESSION['REQUEST_ADDR'],
+                                (string)date('m.d.y'),
+                                (string)$_SESSION['REQUEST_ADDR'],
                                 $Look
                                 ))->execute();
 
@@ -217,7 +217,7 @@ class PostController implements Controller
                         }
 
                         $UserBan = $this->Manhattan->GetModel()->prepare('SELECT * FROM bans WHERE value = ?')
-                                ->bind(array($A['username']))->execute();
+                                ->bind(array((string)$A['username']))->execute();
 
                         if ($UserBan->num_rows() > 0)
                         {
@@ -225,7 +225,7 @@ class PostController implements Controller
                         }
 
                         $IpBan = $this->Manhattan->GetModel()->prepare('SELECT * FROM bans WHERE value = ?')
-                                ->bind(array($_SERVER['REQUEST_ADDR']))->execute();
+                                ->bind(array((string)$_SERVER['REQUEST_ADDR']))->execute();
 
                         if ($IpBan->num_rows() > 0)
                         {
@@ -463,7 +463,7 @@ class PostController implements Controller
                     $Comment = $this->Manhattan->GetModel()->secure($_POST['comment']);
 
                     $this->Manhattan->GetModel()->prepare('INSERT INTO sulake_news_comments(username, date, comment, article) VALUES (?, ?, ?, ?)')
-                            ->bind(array($_SESSION['habbo']['username'], date('m-d-y'), $Comment, $Current))->execute();
+                            ->bind(array($_SESSION['habbo']['username'], (string)date('m-d-y'), $Comment, $Current))->execute();
 
                     die('Comment has been submitted!');
                     break;

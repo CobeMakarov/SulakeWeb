@@ -34,7 +34,7 @@ class View extends Manhattan
             return; //blah
         }
 
-        $this->Javascript = $this->Javascript . "\r\n" . '        <script type="text/javascript" src="Public/Themes/' . THEME . '/Javascript/' . $_file . '.js"></script>';
+        $this->Javascript = $this->Javascript . "\r\n" . '        <script type="text/javascript" src="./Public/Themes/' . THEME . '/Javascript/' . $_file . '.js"></script>';
     }
 
     public function css($_file)

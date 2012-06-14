@@ -22,10 +22,14 @@ a
 .page-container
 {
     display: block;
-    width: 57%;
-    margin-left: 212px;
+    width: 930px;
+    margin: auto;
 }
 
+.box-container
+{
+    width: 759px;
+}
 input
 {
     width: 220px;

@@ -31,7 +31,7 @@ class CharactersController implements Controller
             $View = new View();
 
             new ControllerHelper($View, 'page-characters');
-            
+
             $View->set(array(
                 'page-title' => $this->Manhattan->Config['Site']['Title'],
                 'page-tagline' => 'Characters',
@@ -48,7 +48,7 @@ class CharactersController implements Controller
 
     public function check()
     {
-        return file_exists('Public/Themes/' . THEME . '/page-characters.html');
+        return true;
     }
 }
 ?>

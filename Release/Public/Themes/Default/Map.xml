@@ -6,7 +6,6 @@
         <id>page-index</id>
 
         <html>page-index</html>
-        <html>page-footer</html>
 
         <css>index</css>
 
@@ -48,11 +47,31 @@
 
     <controller>
 
+        <id>page-hard-article</id>
+
+        <html>page-header</html>
+        <html>page-hard-article</html>
+        <html>page-footer</html>
+
+        <css>boxes</css>
+        <css>body</css>
+        <css>header</css>
+
+        <js>jquery.global</js>
+        <js>jquery.articles</js>
+        <js>jquery.online</js>
+        <js>jquery.comments</js>
+
+    </controller>
+
+    <controller>
+
         <id>page-community</id>
 
         <html>page-header</html>
         <html>page-article</html>
         <html>page-community</html>
+        <html>page-footer</html>
 
         <css>boxes</css>
         <css>body</css>

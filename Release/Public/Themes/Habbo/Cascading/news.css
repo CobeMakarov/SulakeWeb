@@ -1,9 +1,10 @@
 .article-container
 {
     display: block;
-    width: 759px;
+    width: 930px;
     height: 300px;
-    margin-left: 212px;
+    margin: auto;
+    position: relative;
 }
 
 .article-container > .content
@@ -53,8 +54,9 @@
 .article-container > .content > .information
 {
     display: block;
-    margin-top: 100px;
-    margin-left: 10px;
+    position: absolute;
+    bottom: 0;
+    margin-left: 20px;
     height: 60px;
     color: #fff;
 }

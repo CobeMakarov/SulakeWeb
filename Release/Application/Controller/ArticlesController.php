@@ -36,18 +36,9 @@ class ArticlesController implements Controller
 
             $Id = $_GET[0];
 
-            $View = new View('page-header');
+            $View = new View();
 
-            $View->add('page-hard-article');
-
-            $View->css('boxes');
-            $View->css('body');
-            $View->css('header');
-
-            $View->javascript('jquery.global');
-            $View->javascript('jquery.articles');
-            $View->javascript('jquery.online');
-            $View->javascript('jquery.comments');
+            new ControllerHelper($View, 'page-hard-article');
 
             $Article = $this->Manhattan->GetModel()->prepare('SELECT * FROM sulake_news WHERE id = ?')
                     ->bind(array($Id))->execute();

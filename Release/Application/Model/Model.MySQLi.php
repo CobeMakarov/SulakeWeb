@@ -87,7 +87,7 @@ class mMySQLi implements Model
         $this->retrieve($_params, $_arguments);
 
         //Bind the parameters
-        callUser_func_array(array($this->STMT, 'bind_param'), $_arguments);
+        call_user_func_array(array($this->STMT, 'bind_param'), $_arguments);
 
         return $this;
     }
@@ -111,9 +111,7 @@ class mMySQLi implements Model
 
     private function type($_variable)
     {
-        $_type = gettype($_variable);
-
-        return substr($_type, 0, 1); // Return first character!!
+        return substr(gettype($_variable), 0, 1); // Return first character!!
     }
 
     public function execute()

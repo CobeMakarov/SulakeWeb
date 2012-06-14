@@ -20,11 +20,11 @@
 .header-container > .header
 {
     position: relative;
-    background: url("../Images/subnavibg.png") no-repeat 190px 0;
-    margin: 0 auto;
     text-align: left;
     width: 930px;
     z-index: 8999;
+    height: 100%;
+    margin: auto;
 }
 
 .header-container > .header > h1
@@ -57,10 +57,8 @@
 
 .header-container > .header > .habbos-online
 {
-    position: absolute;
-    width: 110px;
-    left: 781px;
-    top: 15px;
+    float: right;
+    margin-top: 20px;
     font-size: 10px;
     text-align: center;
     background-color: #ffffff;
@@ -72,9 +70,9 @@
 .top-navigation
 {
     position: absolute;
-    left: 477px;
     top: 0;
-    width: 285px;
+    left: 447px;
+    width: 180px;
     height: 28px;
     background-color: white;
     border-bottom-left-radius: 7px;
@@ -103,9 +101,9 @@
 
 .sub-navigation
 {
-    position: absolute;
     width: 70%;
-    top: 75px;
+    position: absolute;
+    bottom: 0;
 }
 
 .sub-navigation > .navigation-link
@@ -152,10 +150,8 @@
     background-repeat: no-repeat;
     background-position: 1px 100%;
     padding-bottom: 9px;
-    position: absolute;
-    width: 70%;
-    top: 105px;
-    left: 212px;
+    width: 925px;
+    margin: auto;
 }
 
 .low-navigation-container > .low-navigation
