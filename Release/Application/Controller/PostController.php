@@ -183,7 +183,7 @@ class PostController implements Controller
                                 '',
                                 $this->Manhattan->Config['Site']['Title'] . ' new user!',
                                 (string)date('m.d.y'),
-                                (string)$_SESSION['REMOTE_ADDR'],
+                                (string)$_SERVER['REMOTE_ADDR']
                                 //$Look
                                 ))->execute();
 
