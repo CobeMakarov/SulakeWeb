@@ -159,7 +159,7 @@ class PostController implements Controller
                         die('You left the username field blank!');
                     }
 
-                    $Look = $_POST['creation_look'];
+                    //$Look = $_POST['creation_look'];
 
                     $Character = $this->Manhattan->GetModel()->prepare('SELECT * FROM users WHERE username = ?')
                             ->bind(array($this->Manhattan->GetModel()->secure($_POST['creation_username'])))->execute();
@@ -177,14 +177,14 @@ class PostController implements Controller
                         die('You already have the maximum amount of characters!');
                     }
 
-                    $this->Manhattan->GetModel()->prepare('INSERT INTO users (mail, username, password, motto, account_created, ip_reg, look) VALUES (?, ?, ?, ?, ?, ?, ?)')
+                    $this->Manhattan->GetModel()->prepare('INSERT INTO users (mail, username, password, motto, account_created, ip_reg) VALUES (?, ?, ?, ?, ?, ?)')
                             ->bind(array($_SESSION['account']['master_email'],
                                 $_POST['creation_username'],
                                 '',
                                 $this->Manhattan->Config['Site']['Title'] . ' new user!',
                                 (string)date('m.d.y'),
-                                (string)$_SESSION['REQUEST_ADDR'],
-                                $Look
+                                (string)$_SESSION['REMOTE_ADDR'],
+                                //$Look
                                 ))->execute();
 
                     die('CREATION = GOOD;');
@@ -225,7 +225,7 @@ class PostController implements Controller
                         }
 
                         $IpBan = $this->Manhattan->GetModel()->prepare('SELECT * FROM bans WHERE value = ?')
-                                ->bind(array((string)$_SERVER['REQUEST_ADDR']))->execute();
+                                ->bind(array((string)$_SERVER['RE_ADDR']))->execute();
 
                         if ($IpBan->num_rows() > 0)
                         {
